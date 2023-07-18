@@ -1,0 +1,9 @@
+btn_voltar_id = "btnBackButton"
+input_email_xpath = "//div[@class='card__register']//input[@type='email']"
+input_nome_xpath = "//div[@class='card__register']//input[@type='name']"
+input_senha_xpath = "//div[@class='card__register']//label[@for='password']/../input"
+input_confirmar_senha_xpath = "//div[@class='card__register']//label[@for='passwordConfirmation']/../input"
+toggle_conta_saldo_id = "toggleAddBalance"
+btn_cadastrar_xpath = "//button[text()='Cadastrar']"
+btn_fechar_modal_id = 'btnCloseModal'
+txt_modal_id = 'modalText'
