@@ -43,7 +43,7 @@ class LoginTest:
         loginPage.set_password(senha)
         loginPage.click_button_acessar()
 
-        assert LoginPage.acesso_invalido()
+        assert loginPage.acesso_invalido()
 
 
     def test_login_sem_dot(self,open_login):
@@ -56,7 +56,7 @@ class LoginTest:
         loginPage.set_password(senha)
         loginPage.click_button_acessar()
 
-        assert LoginPage.acesso_invalido()
+        assert loginPage.acesso_invalido()
 
 
     def test_login_sem_email(self,open_login):
@@ -66,7 +66,7 @@ class LoginTest:
         loginPage.set_password(senha)
         loginPage.click_button_acessar()
 
-        assert LoginPage.acesso_obrigatorio()
+        assert loginPage.acesso_obrigatorio()
 
     def test_login_email_sem_senha(self, open_login, open_registrar):
 
@@ -87,7 +87,7 @@ class LoginTest:
         loginPage.set_email(email)
         loginPage.click_button_acessar()
 
-        assert LoginPage.acesso_obrigatorio()
+        assert loginPage.acesso_obrigatorio()
 
 
     def test_login_nao_cadastrado(self, open_login, open_registrar):
