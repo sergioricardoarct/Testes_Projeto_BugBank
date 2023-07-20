@@ -1,12 +1,12 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
-from e2eTests.pages.PageObject import PageObject
+
 import e2eTests.locators.LoginLocators as LoginLocators
-import e2eTests.locators.HomeLocators as HomeLocators
+from e2eTests.pages.PageObject import PageObject
+
 
 class LoginPage(PageObject):
-
     # Métodos de SETUP
     base_url = 'https://bugbank.netlify.app/'
 
@@ -24,8 +24,6 @@ class LoginPage(PageObject):
     def set_password(self, password):
         self.driver.find_element(By.XPATH, LoginLocators.input_password_xpath).send_keys(password)
 
-
-
     # Clicks
     def click_button_registrar(self):
         self.driver.find_element(By.XPATH, LoginLocators.btn_registrar_xpath).click()
@@ -33,18 +31,18 @@ class LoginPage(PageObject):
     def click_button_acessar(self):
         self.driver.find_element(By.XPATH, LoginLocators.btn_acessar_xpath).click()
 
-
     # Confirms
 
     def acesso_invalido(self):
-        mensagem_invalida = self.driver.find_element(By.XPATH,LoginLocators.text_obrigatorio_xpath).text
+        mensagem_invalida = self.driver.find_element(By.XPATH, LoginLocators.text_invalido_xpath).text
 
         return "Formato inválido" in mensagem_invalida
 
     def acesso_obrigatorio(self):
-        mensagem_obrigatorio= self.driver.find_element(By.XPATH,LoginLocators.text_obrigatorio_xpath).text
-
-        return "É campo obrigatório"in mensagem_obrigatorio
+        wait = WebDriverWait(self.driver, 1)
+        wait.until(ec.presence_of_element_located((By.XPATH, LoginLocators.text_obrigatorio_xpath)))
+        mensagem_obrigatorio = self.driver.find_element(By.XPATH, LoginLocators.text_obrigatorio_xpath).text
+        return "É campo obrigatório" in mensagem_obrigatorio
 
     def senha_ou_email_invalido(self):
         wait = WebDriverWait(self.driver, 6)
