@@ -38,8 +38,3 @@ class RegistrarPage(PageObject):
         wait.until(ec.visibility_of_all_elements_located((By.ID, RegistrarLocators.txt_modal_id)))
         mensagem_sucesso = self.driver.find_element(By.ID, RegistrarLocators.txt_modal_id).text
         return "foi criada com sucesso" in mensagem_sucesso
-
-
-
-
-

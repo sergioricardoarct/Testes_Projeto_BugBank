@@ -26,4 +26,3 @@ class RegistrarTest:
         homePage = HomePage(driver=loginPage.driver)
         assert homePage.validar_saldo_zerado()
         time.sleep(3)
-

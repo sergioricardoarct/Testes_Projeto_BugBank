@@ -25,5 +25,3 @@ def open_registrar(open_login):
     print("Abrir Registrar")
     open_login.click_button_registrar()
     yield open_login
-
-
